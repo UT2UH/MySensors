@@ -70,6 +70,9 @@
 #elif defined(ARDUINO_ARCH_STM32F1)
 #include "hal/architecture/STM32F1/MyHwSTM32F1.cpp"
 #include "hal/crypto/generic/MyCryptoGeneric.cpp"
+#elif defined(ARDUINO_ARCH_STM32L0)
+#include "hal/architecture/STM32L0/MyHwSTM32L0.cpp"
+#include "hal/crypto/generic/MyCryptoGeneric.cpp"
 #elif defined(ARDUINO_ARCH_NRF5) || defined(ARDUINO_ARCH_NRF52)
 #include "hal/architecture/NRF5/MyHwNRF5.cpp"
 #include "hal/crypto/generic/MyCryptoGeneric.cpp"
@@ -447,6 +450,8 @@ MY_DEFAULT_RX_LED_PIN in your sketch instead to enable LEDs
 #include "hal/architecture/Linux/MyMainLinuxGeneric.cpp"
 #elif defined(ARDUINO_ARCH_STM32F1)
 #include "hal/architecture/STM32F1/MyMainSTM32F1.cpp"
+#elif defined(ARDUINO_ARCH_STM32L0)
+#include "hal/architecture/STM32L0/MyMainSTM32L0.cpp"
 #elif defined(__arm__) && defined(TEENSYDUINO)
 #include "hal/architecture/Teensy3/MyMainTeensy3.cpp"
 #endif
