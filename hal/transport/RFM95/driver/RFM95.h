@@ -103,13 +103,20 @@
 #define DEFAULT_RFM95_IRQ_PIN			(22)			//!< DEFAULT_RFM95_IRQ_PIN
 #elif defined(ARDUINO_ARCH_STM32F1)
 #define DEFAULT_RFM95_IRQ_PIN			(PA3)			//!< DEFAULT_RFM95_IRQ_PIN
+#elif defined(ARDUINO_ARCH_STM32L0)
+#define DEFAULT_RFM95_IRQ_PIN			(18)				                                //!< DEFAULT_RFM95_IRQ_PIN
+#define DEFAULT_RFM95_IRQ_NUM			digitalPinToInterrupt(DEFAULT_RFM95_IRQ_PIN)		//!< DEFAULT_RFM95_IRQ_NUM
 #elif defined(TEENSYDUINO)
 #define DEFAULT_RFM95_IRQ_PIN			(8)				//!< DEFAULT_RFM95_IRQ_PIN
 #else
 #define DEFAULT_RFM95_IRQ_PIN			(2)				//!< DEFAULT_RFM95_IRQ_PIN
 #endif
 
+#if !defined(ARDUINO_ARCH_STM32L0)
 #define DEFAULT_RFM95_CS_PIN			(SS)			//!< DEFAULT_RFM95_CS_PIN
+#else
+#define DEFAULT_RFM95_CS_PIN			(RADIO_NSS)		//!< DEFAULT_RFM95_CS_PIN
+#endif
 
 // SPI settings
 #define RFM95_SPI_DATA_ORDER		MSBFIRST		//!< SPI data order
